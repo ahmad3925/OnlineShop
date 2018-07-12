@@ -1,0 +1,13 @@
+com\Shop\DAO\CategoryDAO.class
+com\Shop\config\DBConfig.class
+com\Shop\DAO\IMPL\SupplierDAOImpl.class
+com\Shop\model\Supplier.class
+com\Shop\model\Shop.class
+com\Shop\model\Product.class
+com\Shop\DAO\ProductDAO.class
+com\Shop\DAO\IMPL\ProductDAOImpl.class
+com\Shop\DAO\IMPL\CategoryDAOImpl.class
+com\Shop\DAO\SupplierDAO.class
+com\Shop\DAO\ShopDAO.class
+com\Shop\DAO\IMPL\ShopDAOImpl.class
+com\Shop\model\Category.class
