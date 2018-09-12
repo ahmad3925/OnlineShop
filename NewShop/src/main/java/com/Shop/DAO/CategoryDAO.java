@@ -3,7 +3,6 @@ package com.Shop.DAO;
 import java.util.List;
 
 import com.Shop.model.Category;
-import com.Shop.model.Shop;
 
 public interface CategoryDAO {
 	public boolean addCategory(Category category);

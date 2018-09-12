@@ -52,10 +52,10 @@ public class ShopDAOImpl implements ShopDAO {
 	}
 
 	@Override
-	public Shop getSingleUser(int userid ) {
+	public Shop getSingleUser(int userid) {
 		try {
-			
-			return sessionFactory.getCurrentSession().get(Shop.class,userid);
+
+			return sessionFactory.getCurrentSession().get(Shop.class, userid);
 		} catch (Exception ex) {
 			ex.printStackTrace();
 			return null;
@@ -71,6 +71,20 @@ public class ShopDAOImpl implements ShopDAO {
 			ex.printStackTrace();
 			return null;
 		}
+
+	}
+
+	@Override
+	public Shop getUserByEmail(String username) {
+		try {
+			return(Shop) sessionFactory.getCurrentSession().createQuery("from Shop where email=:emailid")
+			.setParameter("emailid",username).getSingleResult();				
+		}
+		catch(Exception ex){
+			ex.printStackTrace();
+			return null;	
+		}
+		
 	
 	}
 }

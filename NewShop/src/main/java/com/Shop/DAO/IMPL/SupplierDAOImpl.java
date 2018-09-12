@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.Shop.DAO.SupplierDAO;
-import com.Shop.model.Shop;
 import com.Shop.model.Supplier;
 
 @Repository("supplierDAO")

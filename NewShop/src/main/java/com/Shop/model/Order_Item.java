@@ -7,15 +7,15 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
-import javax.persistence.Table;
 
 import org.springframework.stereotype.Component;
 
 @Component
 @Entity
-@Table(name = "cart_line")
-public class CartLine implements Serializable {
+public class Order_Item implements Serializable {
 
 	/**
 	 * 
@@ -24,50 +24,60 @@ public class CartLine implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int id;
+	private int orderItem_id;
 	
 	@OneToOne
 	private Product product;
-	/*private int productID;
 	
-	public int getProductID() {
-		return productID;
-	}
-	public void setProductID(int productID) {
-		this.productID = productID;
-	}
-	*/@Column(name = "cart_id")
-	private int cartId;	
+	@ManyToOne
+	@JoinColumn(name="order_id", nullable=false)
+	
+	private Order_Table order1;
+	
 	
 	@Column(name = "product_count")
 	private int productCount;
+	
 	
 	private double total;
 	
 	@Column(name = "buying_price")
 	private double buyingPrice;
 	
-	public int getId() {
-		return id;
+	
+	public Order_Table getOrder1() {
+		return order1;
 	}
-	public void setId(int id) {
-		this.id = id;
+	public void setOrder1(Order_Table order1) {
+		this.order1 = order1;
 	}
+	
+	public int getOrderItemsid() {
+		
+		return getOrderItemsid();
+	}
+	public void setOrderItemsid(int orderItem_id) {
+		this.orderItem_id= orderItem_id;
+	}
+	
 	public Product getProduct() {
 		return product;
 	}
 	public void setProduct(Product product) {
 		this.product = product;
 	}
-	public int getCartId() {
-		return cartId;
-	}
-	public void setCartId(int cartId) {
-		this.cartId = cartId;
-	}
+	
 	public int getProductCount() {
 		return productCount;
 	}
+	
+	public int getId() {
+		return orderItem_id;
+	}
+	public void setId(int id) {
+		this.orderItem_id = id;
+	}
+	
 	public void setProductCount(int productCount) {
 		this.productCount = productCount;
 	}
@@ -83,4 +93,11 @@ public class CartLine implements Serializable {
 	public void setBuyingPrice(double buyingPrice) {
 		this.buyingPrice = buyingPrice;
 	}
+	public int getOrderItem_id() {
+		return orderItem_id;
+	}
+	public void setOrderItem_id(int orderItem_id) {
+		this.orderItem_id = orderItem_id;
+	}
+	
 }

@@ -6,7 +6,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Lob;
 import javax.persistence.Transient;
 
 import org.springframework.web.multipart.MultipartFile;
@@ -28,7 +27,7 @@ public class Product {
 	private String code;
 
 	@Transient
-	private MultipartFile file;
+	private MultipartFile files;
 
 	
 	public String getCode() {
@@ -46,14 +45,14 @@ public class Product {
 
 	}
 
-	public MultipartFile getFile() {
-		return file;
+
+	public MultipartFile getFiles() {
+		return files;
 	}
 
-	public void setFile(MultipartFile file) {
-		this.file = file;
+	public void setFiles(MultipartFile files) {
+		this.files = files;
 	}
-
 
 	public int getProdid() {
 		return prodid;

@@ -12,5 +12,6 @@ public interface ShopDAO {
 
 	public Shop getSingleUser(int userid);
 	public List<Shop> getAllUser();
+	public Shop getUserByEmail(String username);
 	
 }
