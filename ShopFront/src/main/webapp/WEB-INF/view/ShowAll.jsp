@@ -27,10 +27,7 @@
 <th scope="col">Name</th>
 <th scope="col">mobile</th>
 <th scope="col">Address</th>
-<th scope="col">City</th>
-<th scope="col">Pin Code</th>
-<th scope="col">State</th>
-<th scope="col">Country</th>
+
 <th scope="col">Action</th>
 </tr>
 </thead>
@@ -41,10 +38,6 @@
 <td>${Shop.name}</td>
 <td>${Shop.mobile}</td>
 <td>${Shop.address}</td>
-<td>${Shop.city}</td>
-<td>${Shop.pincode}</td>
-<td>${Shop.state}</td>
-<td>${Shop.country}</td>
 
 <td>
 <a href="${pageContext.request.contextPath}/EditStudent/${Shop.userid}" class="fas fa-pencil-alt btn btn-info"></a>
