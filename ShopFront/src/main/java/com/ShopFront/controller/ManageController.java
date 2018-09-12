@@ -18,7 +18,8 @@ import com.Shop.DAO.SupplierDAO;
 import com.Shop.model.Category;
 import com.Shop.model.Product;
 import com.Shop.model.Supplier;
-import com.Shop.util.FileUploadUtility;
+
+import util.FileUploadUtility;
 
 @Controller
 @RequestMapping("/manageProduct")
@@ -39,17 +40,43 @@ public class ManageController {
 		return "prodReg";
 
 	}
+	
+	
+	@RequestMapping(value = "/prodReg", method = RequestMethod.POST)
+	public String doPostUplod(@ModelAttribute("product") Product product, Model model,
+			@RequestParam(name = "file1", required = false) MultipartFile file1, HttpServletRequest request,
+			@RequestParam(name = "file2", required = false) MultipartFile file2,
+			@RequestParam(name = "file3", required = false) MultipartFile file3,
+			@RequestParam(name = "file4", required = false) MultipartFile file4) {
+
+		MultipartFile files[] = { file1, file2, file3, file4 };	
+		if (files[0].isEmpty()) {
+			FileUploadUtility.uploadNoImage(request, product.getCode());
+		} else {
+			FileUploadUtility.uploadFile(request, files, product.getCode());
+		}
+
+		productDAO.addProduct(product);
+		return "redirect:/prodReg";
+	}
+
 
 	@RequestMapping(value = "/regProd", method = RequestMethod.POST)
 	public String regP(@ModelAttribute("product") Product product, Model model,
-			@RequestParam("file") MultipartFile file, HttpServletRequest request) {
+			@RequestParam("file1") MultipartFile file1
+			,@RequestParam("file2") MultipartFile file2,
+			@RequestParam("file3") MultipartFile file3,
+			@RequestParam("file4") MultipartFile file4
+			, HttpServletRequest request) {
 
-		if (file.isEmpty()) {
+		MultipartFile files[]= {file1,file2,file3,file4};
+		
+		if (files[0].isEmpty()) {
 			FileUploadUtility.uploadNoImage(request, product.getCode());
 		}
 
 		else {
-			FileUploadUtility.uploadFile(request, file, product.getCode());
+			FileUploadUtility.uploadFile(request, files, product.getCode());
 		}
 
 		productDAO.addProduct(product);
@@ -67,19 +94,23 @@ public class ManageController {
 
 	@RequestMapping(value = "/updateProd", method = RequestMethod.POST)
 	public String updateS(@ModelAttribute("product") Product product, Model model,
-			@RequestParam("file") MultipartFile file, HttpServletRequest request) {
+			@RequestParam("file1") MultipartFile file1
+			,@RequestParam("file2") MultipartFile file2,
+			@RequestParam("file3") MultipartFile file3,
+			@RequestParam("file4") MultipartFile file4
+			, HttpServletRequest request) {
 
-		if (file.isEmpty()) {
-			Product prod=productDAO.getSingleProduct(product.getProdid());
-			product.setCode(prod.getCode());
-			productDAO.updateProduct(product);
+		MultipartFile files[]= {file1,file2,file3,file4};
+		
+		if (files[0].isEmpty()) {
+			FileUploadUtility.uploadNoImage(request, product.getCode());
 		}
 
 		else {
-			FileUploadUtility.uploadFile(request, file, product.getCode());
+			product.setCode(new Product().getCode());
 			productDAO.updateProduct(product);
-		}
-		
+			FileUploadUtility.uploadFile(request, files, product.getCode());
+		}		
 		return "redirect:/manageProduct/prodReg";
 	}
 
