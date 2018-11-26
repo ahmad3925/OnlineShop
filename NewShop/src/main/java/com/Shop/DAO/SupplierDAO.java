@@ -2,7 +2,6 @@ package com.Shop.DAO;
 
 import java.util.List;
 
-import com.Shop.model.Shop;
 import com.Shop.model.Supplier;
 
 public interface SupplierDAO {

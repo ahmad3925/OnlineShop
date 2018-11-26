@@ -3,7 +3,6 @@ package com.Shop.DAO;
 import java.util.List;
 
 import com.Shop.model.Product;
-import com.Shop.model.Shop;
 
 public interface ProductDAO {
 
@@ -13,5 +12,7 @@ public interface ProductDAO {
 
 		public Product getSingleProduct(int prodid);
 		public List<Product> getAllProduct();
-		
+		public List<Product> getAllProductKeywords(String Keyword);
+		List<Product> getProductByCategory(int categoryid);
+		List<Product> getProductByUnitPrice(double minunitprice, double maxunitprice);
 	}

@@ -39,7 +39,7 @@ public class CartDAOImpl implements CartDAO {
 	@Override
 	public boolean add(CartLine cartLine) {
 		try {
-			sessionFactory.getCurrentSession().persist(cartLine);
+			sessionFactory.getCurrentSession().save	(cartLine);
 			return true;
 		}
 		catch(Exception ex) {
@@ -98,11 +98,10 @@ public class CartDAOImpl implements CartDAO {
 
 	@Override
 	public List<CartLine> listAvailable(int cartId) {
-		String query = "FROM CartLine WHERE cartId = :cartId AND available = :available";
+		String query = "FROM CartLine WHERE cartId = :cartId";
 		return sessionFactory.getCurrentSession()
 								.createQuery(query, CartLine.class)
 									.setParameter("cartId", cartId)
-									.setParameter("available", true)
 										.getResultList();
 	}
 
@@ -117,6 +116,22 @@ public class CartDAOImpl implements CartDAO {
 			return false;
 		}
 	}
+
+	@Override
+	public Cart getbyEmail(String email) {
+		String query = "FROM Cart WHERE email = :email";
+		try {
+			
+			return sessionFactory.getCurrentSession()
+									.createQuery(query,Cart.class)
+										.setParameter("email",email)
+										
+											.getSingleResult();
+			
+		}catch(Exception ex) {
+			return null;	
+		}		
+}
 
 	/*@Override
 	public boolean addOrderDetail(OrderDetail orderDetail) {

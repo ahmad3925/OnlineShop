@@ -10,6 +10,9 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import org.springframework.stereotype.Component;
+
+@Component
 @Entity
 @Table(name = "cart_line")
 public class CartLine implements Serializable {
@@ -25,8 +28,15 @@ public class CartLine implements Serializable {
 	
 	@OneToOne
 	private Product product;
+	/*private int productID;
 	
-	@Column(name = "cart_id")
+	public int getProductID() {
+		return productID;
+	}
+	public void setProductID(int productID) {
+		this.productID = productID;
+	}
+	*/@Column(name = "cart_id")
 	private int cartId;	
 	
 	@Column(name = "product_count")

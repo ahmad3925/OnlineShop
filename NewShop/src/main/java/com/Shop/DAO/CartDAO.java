@@ -19,8 +19,10 @@ public interface CartDAO {
 	// updating the cart
 	boolean updateCart(Cart cart);
 	
+	
 	// list of available cartLine
 	public List<CartLine> listAvailable(int cartId);
+	public Cart getbyEmail(String email);
 	
 	// adding order details
 //boolean addOrderDetail(OrderDetail orderDetail);

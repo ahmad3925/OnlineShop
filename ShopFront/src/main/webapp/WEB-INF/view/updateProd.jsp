@@ -107,11 +107,34 @@
 				<label class="col-md-4 control-label" for="textinput">Choose
 					Image</label>
 				<div class="col-md-8">
-					<form:input type="file" path="file" />
+					<input type="file" name="file1" />
 				</div>
 			</div>
 
 
+			<div class="form-group">
+				<label class="col-md-4 control-label" for="textinput">Choose
+					Image</label>
+				<div class="col-md-8">
+					<input type="file" name="file2" />
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label class="col-md-4 control-label" for="textinput">Choose
+					Image</label>
+				<div class="col-md-8">
+					<input type="file" name="file3" />
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label class="col-md-4 control-label" for="textinput">Choose
+					Image</label>
+				<div class="col-md-8">
+					<input type="file" name="file4" />
+				</div>
+			</div>
 			<!-- Button (Double) -->
 			<div class="form-group">
 				<label class="col-md-4 control-label" for="Submit"></label>

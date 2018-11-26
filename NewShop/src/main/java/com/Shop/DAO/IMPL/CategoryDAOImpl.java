@@ -10,7 +10,6 @@ import org.springframework.stereotype.Repository;
 
 import com.Shop.DAO.CategoryDAO;
 import com.Shop.model.Category;
-import com.Shop.model.Shop;
 
 
 @Repository("categoryDAO")
